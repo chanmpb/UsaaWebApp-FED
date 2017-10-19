@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+.mySlides {
+display:none
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.readMe {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: right;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.Home_Paragraph {
+	padding-left:12%;
+	padding-right:30%;
+}
+
+.Header{
+	padding-left:12%;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<h1 class="Header">Christian Marcel Bautista</h1>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="Picture_1.jpg" style="width:100%">
+  <div class="readMe">
+	<button type="button" onclick="openReadMore('CherryBlossoms.html')">Read More</button>
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="Picture_2.jpg" style="width:100%">
+  <div class="readMe">
+	<button type="button" onclick="openReadMore('Astronaut.html')">Read More</button>
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="Picture_3.jpg" style="width:100%">
+  <div class="readMe">
+	<button type="button" onclick="openReadMore('Ship.html')">Read More</button>
+  </div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
+<div style="align:left">
+<div class="Home_Paragraph">
+<h3>Lorem Ipsum</h3>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante arcu, mattis vitae arcu sed, varius interdum ipsum. Nulla eget pretium justo. Etiam ultricies venenatis erat eget pellentesque. Curabitur ultricies turpis eget massa luctus, eu vestibulum elit condimentum. Pellentesque imperdiet ipsum quis libero condimentum, congue volutpat ipsum ultricies. Suspendisse potenti. Curabitur consectetur nisi non massa bibendum ultricies. Cras accumsan est lorem, at dictum ipsum venenatis ac. Nam id mattis metus, sed efficitur nibh. Nullam rutrum nulla in molestie elementum. 
+</p>
+<ul>
+  <li>Pellentesque tempus nulla a tincidunt maximus.</li>
+  <li>Integer lobortis euismod malesuada.</li>
+</ul>
+</div>
+
+<div class="Home_Paragraph">
+<h3>Lorem Ipsum</h3>
+<p>
+Maecenas fermentum magna a orci ultrices lacinia. Aliquam a eros tellus. Praesent ac mattis nunc. Sed dolor erat, scelerisque aliquam imperdiet ac, laoreet eu purus. Nullam eu venenatis neque, et ullamcorper magna. Aenean lorem nunc, elementum non ante at, iaculis facilisis ipsum. Phasellus condimentum dictum convallis. Nulla ut luctus mi. Vestibulum ac justo a elit pulvinar vestibulum. Sed massa lorem, feugiat nec egestas vel, maximus non elit. Nam tincidunt, ipsum quis tempus imperdiet, massa quam sagittis nibh, eu convallis purus massa vel nunc. Quisque molestie lectus at tortor fringilla, sed placerat neque semper. Praesent pulvinar, mi eget maximus viverra, orci dolor sagittis est, ut posuere lectus risus congue elit. Nam tempus mauris risus, et scelerisque tortor sodales nec. 
+</p>
+<ul>
+  <li>Nam tempor lorem magna, a egestas massa facilisis sit amet. In non purus sapien.</li>
+  <li>Vestibulum mauris sem, bibendum consectetur vehicula id, luctus in lacus.</li>
+</ul>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
+
+function openReadMore(pageName)
+{
+	window.open(pageName, "_self");
+}
+</script>
+
+</body>
+</html> 
