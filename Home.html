@@ -35,15 +35,6 @@ display:none
   transition: background-color 0.6s ease;
 }
 
-.Home_Paragraph {
-	padding-left:12%;
-	padding-right:30%;
-}
-
-.Header{
-	padding-left:12%;
-}
-
 .active {
   background-color: #717171;
 }
@@ -70,30 +61,83 @@ display:none
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
 </style>
 </head>
-<body>
+<body style="padding:20px">
 
-<h1 class="Header">Christian Marcel Bautista</h1>
+<h2>Christian Marcel Bautista</h2>
 
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <img src="Picture_1.jpg" style="width:100%">
+  <img src="Picture_1.jpg" style="width:100%" onclick="currentSlide(2)">
   <div class="readMe">
 	<button type="button" onclick="openReadMore('CherryBlossoms.html')">Read More</button>
   </div>
 </div>
 
 <div class="mySlides fade">
-  <img src="Picture_2.jpg" style="width:100%">
+  <img src="Picture_2.jpg" style="width:100%" onclick="currentSlide(3)">
   <div class="readMe">
 	<button type="button" onclick="openReadMore('Astronaut.html')">Read More</button>
   </div>
 </div>
 
 <div class="mySlides fade">
-  <img src="Picture_3.jpg" style="width:100%">
+  <img src="Picture_3.jpg" style="width:100%" onclick="currentSlide(1)">
   <div class="readMe">
 	<button type="button" onclick="openReadMore('Ship.html')">Read More</button>
   </div>
@@ -108,29 +152,53 @@ display:none
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 
-
-
-<div style="align:left">
 <div class="Home_Paragraph">
-<h3>Lorem Ipsum</h3>
-<p>
+<h4>Lorem Ipsum</h4>
+<p style="font-size:12px">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante arcu, mattis vitae arcu sed, varius interdum ipsum. Nulla eget pretium justo. Etiam ultricies venenatis erat eget pellentesque. Curabitur ultricies turpis eget massa luctus, eu vestibulum elit condimentum. Pellentesque imperdiet ipsum quis libero condimentum, congue volutpat ipsum ultricies. Suspendisse potenti. Curabitur consectetur nisi non massa bibendum ultricies. Cras accumsan est lorem, at dictum ipsum venenatis ac. Nam id mattis metus, sed efficitur nibh. Nullam rutrum nulla in molestie elementum. 
 </p>
-<ul>
+<ul style="font-size:12px">
   <li>Pellentesque tempus nulla a tincidunt maximus.</li>
   <li>Integer lobortis euismod malesuada.</li>
 </ul>
 </div>
 
 <div class="Home_Paragraph">
-<h3>Lorem Ipsum</h3>
-<p>
+<h5>Lorem Ipsum</h5>
+<p style="font-size:12px">
 Maecenas fermentum magna a orci ultrices lacinia. Aliquam a eros tellus. Praesent ac mattis nunc. Sed dolor erat, scelerisque aliquam imperdiet ac, laoreet eu purus. Nullam eu venenatis neque, et ullamcorper magna. Aenean lorem nunc, elementum non ante at, iaculis facilisis ipsum. Phasellus condimentum dictum convallis. Nulla ut luctus mi. Vestibulum ac justo a elit pulvinar vestibulum. Sed massa lorem, feugiat nec egestas vel, maximus non elit. Nam tincidunt, ipsum quis tempus imperdiet, massa quam sagittis nibh, eu convallis purus massa vel nunc. Quisque molestie lectus at tortor fringilla, sed placerat neque semper. Praesent pulvinar, mi eget maximus viverra, orci dolor sagittis est, ut posuere lectus risus congue elit. Nam tempus mauris risus, et scelerisque tortor sodales nec. 
 </p>
-<ul>
+<ul style="font-size:12px">
   <li>Nam tempor lorem magna, a egestas massa facilisis sit amet. In non purus sapien.</li>
   <li>Vestibulum mauris sem, bibendum consectetur vehicula id, luctus in lacus.</li>
 </ul>
+</div>
+
+<div style="text-align:center"><br>
+<button id="myBtn" type="button" onclick="">Contact Us!</button>
+</div>
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="container">
+  <form action="/action_page.php">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name..">
+
+    <label for="Email">Email</label>
+    <input type="text" id="Email" name="Email" placeholder="Your email..">
+
+    <label for="subject">Comments</label>
+    <textarea id="Comments" name="Comments" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+  </div>
+
 </div>
 
 <script>
@@ -160,6 +228,26 @@ function showSlides(n) {
 function openReadMore(pageName)
 {
 	window.open(pageName, "_self");
+}
+
+var modal = document.getElementById('myModal');
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
 
